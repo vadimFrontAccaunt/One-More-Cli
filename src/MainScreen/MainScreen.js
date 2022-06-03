@@ -2,27 +2,29 @@ import {View, Text, ScrollView, SafeAreaView} from 'react-native';
 import React from 'react';
 import {useSelector} from 'react-redux';
 import ElementOfCartoon from './ElementOfCartoon';
-
-import {FlexedView} from '../../styles';
+import {StyledBlock} from '../SimpleComponents/Block';
+import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
+import {StyledText} from '../SimpleComponents/Text';
+import {StyledPressable} from '../SimpleComponents/Pressable';
 
 export const MainScreen = ({navigation}) => {
   const state = useSelector(state => state.cartoons);
 
-  let empty;
-  if (state.length === 0) {
-    empty = false;
-  } else {
-    empty = true;
-  }
+  const LoginScreenNav = () => {
+    navigation.navigate('LoginPage');
+  };
+
+  const isEmpty = state.length;
+
   return (
     <SafeAreaView>
       <ScrollView>
-        <FlexedView marginL="20px" marginR="20px" marginT="5px">
+        <StyledBlock flexDirection="row" justifyContent="space-between">
           <Text>CARTON №</Text>
           <Text>ACT.</Text>
-        </FlexedView>
+        </StyledBlock>
 
-        {empty ? (
+        {isEmpty ? (
           state.map(el => (
             <ElementOfCartoon
               key={el.cartonNumber}
@@ -36,6 +38,17 @@ export const MainScreen = ({navigation}) => {
             <Text>Sorry, my state is empty</Text>
           </View>
         )}
+        <StyledPressable mt="20px" ml="20px" onPress={LoginScreenNav}>
+          <StyledText
+            borderWidth="1px"
+            width="100px"
+            height="60px"
+            textAlign="center"
+            pt="15px"
+            fz="18px">
+            Login
+          </StyledText>
+        </StyledPressable>
       </ScrollView>
     </SafeAreaView>
   );
