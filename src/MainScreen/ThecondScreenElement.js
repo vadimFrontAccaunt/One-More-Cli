@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
-import {Pressable, Text, View, Image} from 'react-native';
-import {BorderedText, FlexedView, MarginView, StyledImage} from '../../styles';
+import {Pressable, Text, View} from 'react-native';
+import {StyledBlock} from '../SimpleComponents/Block';
+import {ImageDefault} from '../SimpleComponents/StyledImage';
+import {StyledText} from '../SimpleComponents/Text';
 
 const ThecondScreenElement = ({
   productID,
@@ -16,50 +18,63 @@ const ThecondScreenElement = ({
   };
   return (
     <Pressable onPress={deleteStatusF}>
-      <FlexedView marginL="10px" marginR="10px" marginT="20px">
-        <FlexedView>
-          {deleteStatus ? (
+      <StyledBlock
+        ml="10px"
+        mr="10px"
+        mt="20px"
+        display="flex"
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center">
+        <StyledBlock
+          display="flex"
+          flexDirection="row"
+          justifyContent="space-between"
+          alignItems="center">
+          {(deleteStatus && (
             <View>
-              <StyledImage
+              <ImageDefault
                 width="80px"
                 height="100px"
                 source={{uri: productPicture}}
               />
             </View>
-          ) : (
-            <></>
-          )}
-          <MarginView marginL="10px">
+          )) ||
+            null}
+          <StyledBlock ml="10px">
             <Text>{productID}</Text>
-            <FlexedView marginT="10px" width="70px">
+            <StyledBlock mt="10px" width="70px">
               <Text>{productColor}</Text>
               <Text>{productSize}</Text>
-            </FlexedView>
-          </MarginView>
-        </FlexedView>
+            </StyledBlock>
+          </StyledBlock>
+        </StyledBlock>
 
         <View>
-          <BorderedText
+          <StyledText
             width="100px"
-            backgroundColor="green"
-            borderRadius="20px">
+            bgc="green"
+            br="20px"
+            textAlign="center"
+            fz="20px">
             {productCount}
-          </BorderedText>
+          </StyledText>
         </View>
         {deleteStatus ? (
           <></>
         ) : (
           <Pressable>
-            <BorderedText
-              backgroundColor="red"
+            <StyledText
+              textAlign="center"
+              bgc="red"
               width="80px"
               height="50px"
-              paddingT="12px">
+              pt="12px">
               Delete
-            </BorderedText>
+            </StyledText>
           </Pressable>
         )}
-      </FlexedView>
+      </StyledBlock>
     </Pressable>
   );
 };
