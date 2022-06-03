@@ -2,27 +2,25 @@ import {View, Text, ScrollView, SafeAreaView} from 'react-native';
 import React from 'react';
 import {useSelector} from 'react-redux';
 import ElementOfCartoon from './ElementOfCartoon';
-
-import {FlexedView} from '../../styles';
+import {StyledBlock} from '../SimpleComponents/Block';
 
 export const MainScreen = ({navigation}) => {
   const state = useSelector(state => state.cartoons);
 
-  let empty;
-  if (state.length === 0) {
-    empty = false;
-  } else {
-    empty = true;
-  }
+  const isEmpty = state.length;
+
   return (
     <SafeAreaView>
       <ScrollView>
-        <FlexedView marginL="20px" marginR="20px" marginT="5px">
+        <StyledBlock
+          display="flex"
+          flexDirection="row"
+          justifyContent="space-between">
           <Text>CARTON №</Text>
           <Text>ACT.</Text>
-        </FlexedView>
+        </StyledBlock>
 
-        {empty ? (
+        {isEmpty ? (
           state.map(el => (
             <ElementOfCartoon
               key={el.cartonNumber}
