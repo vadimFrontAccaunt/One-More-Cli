@@ -1,10 +1,12 @@
 import {View} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {StyledText} from '../SimpleComponents/Text';
+import {Context} from '../Language/context';
 
 const RandomScreen = () => {
   const [randomNumber, setRandomNumber] = useState(0);
   const [statusError, setStatusError] = useState(false);
+  const [lang, setlang] = useContext(Context);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,13 +25,13 @@ const RandomScreen = () => {
   return (
     <View>
       <StyledText textAlign="center" fz="18px">
-        Random Number
+        {lang.rn}
       </StyledText>
 
       <StyledText textAlign="center" fz="18px">
         {(statusError && (
           <StyledText textAlign="center" fz="18px">
-            Error
+            {lang.error}
           </StyledText>
         )) ||
           randomNumber}

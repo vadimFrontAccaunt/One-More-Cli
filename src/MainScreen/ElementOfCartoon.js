@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Pressable, Text} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {StyledBlock} from '../SimpleComponents/Block';
 import {StyledText} from '../SimpleComponents/Text';
 import {actions} from '../../redux/store';
+import {Context} from '../Language/context';
 
 const ElementOfCartoon = ({cartonNumber, count, navigation}) => {
   const dispatch = useDispatch();
+  const [lang, setlang] = useContext(Context);
   const deleteCartoon = () => {
     dispatch(actions.deleteCartoonFromList(cartonNumber));
   };
@@ -50,7 +52,7 @@ const ElementOfCartoon = ({cartonNumber, count, navigation}) => {
             pt="12px"
             pb="12px"
             fz="16px">
-            Delete
+            {lang.delete}
           </StyledText>
         </StyledBlock>
       </Pressable>

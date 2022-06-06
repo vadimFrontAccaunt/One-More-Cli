@@ -1,12 +1,14 @@
 import {Formik} from 'formik';
 import {Pressable, View} from 'react-native';
 import * as yup from 'yup';
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyledBlock} from '../SimpleComponents/Block';
 import {StyledInput} from '../SimpleComponents/Input';
 import {StyledText} from '../SimpleComponents/Text';
+import {Context} from '../Language/context';
 
 const LoginScreen = () => {
+  const [lang, setlang] = useContext(Context);
   const valid = yup.object().shape({
     login: yup
       .string()
@@ -43,7 +45,7 @@ const LoginScreen = () => {
           touched,
         }) => (
           <StyledBlock ml="20px" mt="20px" mr="20px">
-            <StyledText fz="20px">Login</StyledText>
+            <StyledText fz="20px">{lang.login}</StyledText>
             <StyledInput
               borderWidth="1px"
               onChangeText={handleChange('login')}
@@ -53,7 +55,7 @@ const LoginScreen = () => {
             {touched.login && errors.login && (
               <StyledText color="red">{errors.login}</StyledText>
             )}
-            <StyledText fz="20px">Password</StyledText>
+            <StyledText fz="20px">{lang.password}</StyledText>
             <StyledInput
               borderWidth="1px"
               onChangeText={handleChange('pass')}
@@ -65,7 +67,7 @@ const LoginScreen = () => {
             )}
             <Pressable onPress={handleSubmit} disabled={!isValid}>
               <StyledText textAlign="center" mt="20px" fz="20px">
-                Send
+                {lang.send}
               </StyledText>
             </Pressable>
           </StyledBlock>

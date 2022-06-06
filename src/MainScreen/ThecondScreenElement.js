@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Pressable, Text, View} from 'react-native';
+import {Context} from '../Language/context';
 import {StyledBlock} from '../SimpleComponents/Block';
 import {ImageDefault} from '../SimpleComponents/StyledImage';
 import {StyledText} from '../SimpleComponents/Text';
@@ -12,6 +13,7 @@ const ThecondScreenElement = ({
   productPicture,
 }) => {
   const [deleteStatus, setDeleteStatus] = useState(true);
+  const [lang, setlang] = useContext(Context);
 
   const deleteStatusF = () => {
     setDeleteStatus(!deleteStatus);
@@ -66,7 +68,7 @@ const ThecondScreenElement = ({
               width="80px"
               height="50px"
               pt="12px">
-              Delete
+              {lang.delete}
             </StyledText>
           </Pressable>
         )) ||
