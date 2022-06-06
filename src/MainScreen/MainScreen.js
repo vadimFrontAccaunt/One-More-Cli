@@ -6,6 +6,7 @@ import {StyledBlock} from '../SimpleComponents/Block';
 import {StyledText} from '../SimpleComponents/Text';
 import {StyledPressable} from '../SimpleComponents/Pressable';
 import Chart from '../Chart/Chart';
+import RandomScreen from '../RandomScreen/RandomScreen';
 
 export const MainScreen = ({navigation}) => {
   const state = useSelector(state => state.cartoons);
@@ -39,6 +40,7 @@ export const MainScreen = ({navigation}) => {
           </View>
         )}
         <Chart />
+        <RandomScreen />
         <StyledPressable mt="20px" ml="20px" onPress={LoginScreenNav}>
           <StyledText
             borderWidth="1px"
