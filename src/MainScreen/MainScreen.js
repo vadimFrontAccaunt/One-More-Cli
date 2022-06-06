@@ -3,9 +3,9 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import ElementOfCartoon from './ElementOfCartoon';
 import {StyledBlock} from '../SimpleComponents/Block';
-import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import {StyledText} from '../SimpleComponents/Text';
 import {StyledPressable} from '../SimpleComponents/Pressable';
+import Chart from '../Chart/Chart';
 
 export const MainScreen = ({navigation}) => {
   const state = useSelector(state => state.cartoons);
@@ -38,6 +38,7 @@ export const MainScreen = ({navigation}) => {
             <Text>Sorry, my state is empty</Text>
           </View>
         )}
+        <Chart />
         <StyledPressable mt="20px" ml="20px" onPress={LoginScreenNav}>
           <StyledText
             borderWidth="1px"
