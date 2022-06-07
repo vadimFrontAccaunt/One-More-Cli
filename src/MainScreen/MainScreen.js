@@ -7,6 +7,7 @@ import {StyledText} from '../SimpleComponents/Text';
 import {StyledPressable} from '../SimpleComponents/Pressable';
 import Chart from '../Chart/Chart';
 import RandomScreen from '../RandomScreen/RandomScreen';
+import {MainScreenHeader} from './MainScreenHeader';
 
 export const MainScreen = ({navigation}) => {
   const state = useSelector(state => state.cartoons);
@@ -20,11 +21,7 @@ export const MainScreen = ({navigation}) => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <StyledBlock flexDirection="row" justifyContent="space-between">
-          <Text>CARTON №</Text>
-          <Text>ACT.</Text>
-        </StyledBlock>
-
+        <MainScreenHeader />
         {isEmpty ? (
           state.map(el => (
             <ElementOfCartoon
@@ -39,6 +36,8 @@ export const MainScreen = ({navigation}) => {
             <Text>Sorry, my state is empty</Text>
           </View>
         )}
+        <Chart />
+        <RandomScreen />
         <StyledPressable mt="20px" ml="20px" onPress={handleLoginNavigation}>
           <StyledText
             borderWidth="1px"
