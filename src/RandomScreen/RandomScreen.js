@@ -14,7 +14,6 @@ const RandomScreen = () => {
         setRandomNumber(randomNumber => randomNumber + 1);
       } else {
         setStatusError(true);
-        setRandomNumber(0);
       }
     }, 2000);
     return () => clearInterval(interval);
