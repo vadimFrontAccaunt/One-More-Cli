@@ -10,7 +10,7 @@ import Chart from '../Chart/Chart';
 export const MainScreen = ({navigation}) => {
   const state = useSelector(state => state.cartoons);
 
-  const LoginScreenNav = () => {
+  const handleLoginNavigation = () => {
     navigation.navigate('LoginPage');
   };
 
@@ -38,8 +38,7 @@ export const MainScreen = ({navigation}) => {
             <Text>Sorry, my state is empty</Text>
           </View>
         )}
-        <Chart />
-        <StyledPressable mt="20px" ml="20px" onPress={LoginScreenNav}>
+        <StyledPressable mt="20px" ml="20px" onPress={handleLoginNavigation}>
           <StyledText
             borderWidth="1px"
             width="100px"
