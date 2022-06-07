@@ -6,19 +6,19 @@ import {View} from 'react-native';
 export const LoginInput = ({
   onChangeText,
   value,
-  text,
+  lable,
   onBlur,
   touched,
   errors,
 }) => {
   return (
     <View>
-      <StyledText fz="20px">{text}</StyledText>
+      <StyledText fz="20px">{lable}</StyledText>
       <StyledInput
         borderWidth="1px"
         value={value}
-        onBlur={() => onBlur}
-        onChangeText={() => onChangeText}
+        onBlur={onBlur}
+        onChangeText={onChangeText}
       />
       {touched && errors && <StyledText color="red">{errors}</StyledText>}
     </View>
