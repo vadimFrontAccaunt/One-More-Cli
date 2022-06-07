@@ -3,9 +3,9 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import ElementOfCartoon from './ElementOfCartoon';
 import {StyledBlock} from '../SimpleComponents/Block';
-import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import {StyledText} from '../SimpleComponents/Text';
 import {StyledPressable} from '../SimpleComponents/Pressable';
+import Chart from '../Chart/Chart';
 
 export const MainScreen = ({navigation}) => {
   const state = useSelector(state => state.cartoons);
