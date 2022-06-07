@@ -1,25 +1,15 @@
 import {LineChart} from 'react-native-chart-kit';
 import React from 'react';
 import {ScrollView} from 'react-native';
+import {datasets, lables} from '../../servises/chartConst/chartConsts';
 
 const Chart = () => {
   return (
     <ScrollView horizontal>
       <LineChart
         data={{
-          labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-          datasets: [
-            {
-              data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-              ],
-            },
-          ],
+          labels: lables,
+          datasets: datasets,
         }}
         width={1000}
         height={220}
