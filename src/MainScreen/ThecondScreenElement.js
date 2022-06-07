@@ -22,12 +22,10 @@ const ThecondScreenElement = ({
         ml="10px"
         mr="10px"
         mt="20px"
-        display="flex"
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center">
         <StyledBlock
-          display="flex"
           flexDirection="row"
           justifyContent="space-between"
           alignItems="center">
@@ -60,9 +58,7 @@ const ThecondScreenElement = ({
             {productCount}
           </StyledText>
         </View>
-        {deleteStatus ? (
-          <></>
-        ) : (
+        {(!deleteStatus && (
           <Pressable>
             <StyledText
               textAlign="center"
@@ -73,7 +69,8 @@ const ThecondScreenElement = ({
               Delete
             </StyledText>
           </Pressable>
-        )}
+        )) ||
+          null}
       </StyledBlock>
     </Pressable>
   );

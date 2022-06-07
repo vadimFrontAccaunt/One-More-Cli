@@ -21,13 +21,11 @@ const ElementOfCartoon = ({cartonNumber, count, navigation}) => {
       alignItems="center"
       flexDirection="row"
       justifyContent="space-between"
-      display="flex"
       mt="25px"
       ml="10px"
       mr="10px">
       <Pressable onPress={findIndex}>
         <StyledBlock
-          display="flex"
           flexDirection="row"
           justifyContent="space-between"
           width="240px">
