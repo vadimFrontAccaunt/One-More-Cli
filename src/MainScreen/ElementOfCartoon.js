@@ -11,7 +11,7 @@ const ElementOfCartoon = ({cartonNumber, count, navigation}) => {
     dispatch(actions.deleteCartoonFromList(cartonNumber));
   };
 
-  const findIndex = () => {
+  const handleActiveCartoonItemIndex = () => {
     dispatch(actions.findIndexOfCartoon(cartonNumber));
     navigation.navigate('ThecondPage');
   };
@@ -24,7 +24,7 @@ const ElementOfCartoon = ({cartonNumber, count, navigation}) => {
       mt="25px"
       ml="10px"
       mr="10px">
-      <Pressable onPress={findIndex}>
+      <Pressable onPress={handleActiveCartoonItemIndex}>
         <StyledBlock
           flexDirection="row"
           justifyContent="space-between"
